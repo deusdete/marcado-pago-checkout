@@ -3,7 +3,7 @@ const app = express();
 const mercadopago = require("mercadopago");
 
 //REPLACE WITH YOUR ACCESS TOKEN AVAILABLE IN: https://developers.mercadopago.com/panel/credentials
-mercadopago.configurations.setAccessToken(process.env.ACCESS_TOKEN); 
+mercadopago.configurations.setAccessToken("YOUR_ACCESS_TOKEN"); 
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
