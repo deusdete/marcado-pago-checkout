@@ -1,13 +1,14 @@
 const express = require("express");
 const app = express();
 const mercadopago = require("mercadopago");
+require('dotenv').config()
 
 //REPLACE WITH YOUR ACCESS TOKEN AVAILABLE IN: https://developers.mercadopago.com/panel/credentials
-mercadopago.configurations.setAccessToken("YOUR_ACCESS_TOKEN"); 
+mercadopago.configurations.setAccessToken(process.env.ACCESS_TOKEN); 
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
-app.use(express.static("../../client"));
+app.use(express.static("./client"));
 
 app.get("/", function (req, res) {
   res.status(200).sendFile("index.html");
